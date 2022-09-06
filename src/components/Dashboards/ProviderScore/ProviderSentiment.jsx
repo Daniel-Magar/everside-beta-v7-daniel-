@@ -12,6 +12,7 @@ import nssAPIdata from "../../../recoil/atoms/nssAPIdata";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import { exportComponentAsPNG } from "react-component-export-image";
+import providerSentimentCountAtom from "../../../recoil/atoms/providerSentimentCountAtom";
 
 const ProviderSentiment = () => {
   const [nssApiData, setNssApiData] = useRecoilState(nssAPIdata);
@@ -22,6 +23,10 @@ const ProviderSentiment = () => {
   useEffect(() => {
     setApiData(nssApiData);
   }, [nssApiData]);
+
+  const [providerSentiCount, setProviderSentiCount] = useRecoilState(
+    providerSentimentCountAtom
+  );
 
   const NPSComponent = useRef();
 
@@ -106,13 +111,13 @@ const ProviderSentiment = () => {
               <div className="text-center flex flex-col justify-center items-center gap-2">
                 <img src={PositiveIcon} alt="positive" />
                 <h1 className="text-sm md:text-xl font-medium opacity-80">
-                  {apiData?.nss?.positive < 1 ? (
-                    apiData?.nss?.positive + "%"
+                  {providerSentiCount?.Positive < 1 ? (
+                    providerSentiCount?.Positive + "%"
                   ) : (
                     <CountUp
                       start={0}
                       duration={1}
-                      end={apiData?.nss?.positive}
+                      end={providerSentiCount?.Positive}
                       separator=","
                       suffix="%"
                     />
@@ -124,13 +129,13 @@ const ProviderSentiment = () => {
               <div className="text-center flex flex-col justify-center items-center gap-2">
                 <img src={NeutralIcon} alt="neutral" />
                 <h1 className="text-sm md:text-xl font-medium opacity-80">
-                  {apiData?.nss?.neutral < 1 ? (
-                    apiData?.nss?.neutral + "%"
+                  {providerSentiCount?.Neutral < 1 ? (
+                    providerSentiCount?.Neutral + "%"
                   ) : (
                     <CountUp
                       start={0}
                       duration={1}
-                      end={apiData?.nss?.neutral}
+                      end={providerSentiCount?.Neutral}
                       separator=","
                       suffix="%"
                     />
@@ -142,13 +147,13 @@ const ProviderSentiment = () => {
               <div className="text-center flex flex-col justify-center items-center gap-2">
                 <img src={NegativeIcon} alt="passives" />
                 <h1 className="text-sm md:text-xl font-medium opacity-80">
-                  {apiData?.nss?.negative < 1 ? (
-                    apiData?.nss?.negative + "%"
+                  {providerSentiCount?.Negative < 1 ? (
+                    providerSentiCount?.Negative + "%"
                   ) : (
                     <CountUp
                       start={0}
                       duration={1}
-                      end={apiData?.nss?.negative}
+                      end={providerSentiCount?.Negative}
                       separator=","
                       suffix="%"
                     />
@@ -160,13 +165,13 @@ const ProviderSentiment = () => {
               <div className="text-center flex flex-col justify-center items-center gap-2">
                 <img src={ExtremeIcon} alt="extremes" />
                 <h1 className="text-sm md:text-xl font-medium opacity-80">
-                  {apiData?.nss?.extreme < 1 ? (
-                    apiData?.nss?.extreme + "%"
+                  {providerSentiCount?.Negative?.Extreme < 1 ? (
+                    providerSentiCount?.Negative?.Extreme + "%"
                   ) : (
                     <CountUp
                       start={0}
                       duration={1}
-                      end={apiData?.nss?.extreme}
+                      end={providerSentiCount?.Negative?.Extreme}
                       separator=","
                       suffix="%"
                     />

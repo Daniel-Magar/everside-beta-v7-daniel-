@@ -18,6 +18,7 @@ import { BASE_API_LINK } from "../../../utils/BaseAPILink";
 import selectedProviderAtom from "../../../recoil/atoms/selectedProviderAtom";
 import axios from "axios";
 import providerComponentAPIData from "../../../recoil/atoms/providerComponentAPIData";
+import ProviderInfoDate from "../../../recoil/atoms/ProviderInfoDate";
 
 // MUI Slider
 const YearSlider = styled(Slider)({
@@ -85,19 +86,125 @@ const ProviderCalendar2 = () => {
   const [selectedProvider, setSelectedProvider] =
     useRecoilState(selectedProviderAtom);
 
+  const [providerSelectedDate, setProviderSelectedDate] =
+    useRecoilState(ProviderInfoDate);
+
   // Local variables
   const [val, setVal] = useState([finalStartDate, finalEndDate]);
   const [startMonthVal, setStartMonthVal] = useState("Jan");
   const [startMonthNumVal, setStartMonthNumVal] = useState("1");
-  const [endMonthVal, setEndMonthVal] = useState("Jun");
-  const [endMonthNumVal, setEndMonthNumVal] = useState(6);
+  const [endMonthVal, setEndMonthVal] = useState("Aug");
+  const [endMonthNumVal, setEndMonthNumVal] = useState(8);
   const [usernameLocal, setUsernameLocal] = useState();
 
   useEffect(() => {
-    console.log("finalStartDate: ", finalStartDate);
-    console.log("finalEndDate: ", finalEndDate);
-    console.log("finalStartMonth: ", finalStartMonth);
+    console.log("finalStartDate: ", typeof finalStartDate);
+    console.log("finalEndDate: ", typeof finalEndDate);
+    console.log("finalStartMonth: ", typeof finalStartMonth);
     console.log("finalEndMonth: ", finalEndMonth);
+  }, [finalStartDate, finalEndDate, finalStartMonth, finalEndMonth]);
+
+  //To display selected Month in provider info
+
+  useEffect(() => {
+    let startMonth;
+    let endMonth;
+    switch (Number(finalStartMonth)) {
+      case 1:
+        startMonth = "Jan";
+
+        break;
+      case 2:
+        startMonth = "Feb";
+
+        break;
+      case 3:
+        startMonth = "Mar";
+
+        break;
+      case 4:
+        startMonth = "Apr";
+
+        break;
+      case 5:
+        startMonth = "May";
+
+        break;
+      case 6:
+        startMonth = "June";
+        break;
+      case 7:
+        startMonth = "July";
+        break;
+      case 8:
+        startMonth = "Aug";
+
+        break;
+      case 9:
+        startMonth = "Sep";
+
+        break;
+      case 10:
+        startMonth = "Oct";
+
+        break;
+      case 11:
+        startMonth = "Nov";
+
+        break;
+      case 12:
+        startMonth = "Dec";
+        break;
+      default:
+        startMonth = finalStartMonth;
+    }
+    switch (finalEndMonth) {
+      case 1:
+        endMonth = "Jan";
+        break;
+      case 2:
+        endMonth = "Feb";
+        break;
+      case 3:
+        endMonth = "Mar";
+        break;
+      case 4:
+        endMonth = "Apr";
+        break;
+      case 5:
+        endMonth = "May";
+        break;
+      case 6:
+        endMonth = "June";
+        break;
+      case 7:
+        endMonth = "July";
+        break;
+      case 8:
+        endMonth = "Aug";
+        break;
+      case 9:
+        endMonth = "Sep";
+        break;
+      case 10:
+        endMonth = "Oct";
+        break;
+      case 11:
+        endMonth = "Nov";
+        break;
+      case 12:
+        endMonth = "Dec";
+        break;
+    }
+    const selectedStartMonth = startMonth + " " + finalStartDate;
+    const selectedEndMonth = endMonth + " " + finalEndDate;
+    let finalSelectedDate;
+    if (selectedStartMonth === selectedEndMonth) {
+      finalSelectedDate = selectedEndMonth;
+    } else {
+      finalSelectedDate = selectedStartMonth + " - " + selectedEndMonth;
+    }
+    setProviderSelectedDate(finalSelectedDate);
   }, [finalStartDate, finalEndDate, finalStartMonth, finalEndMonth]);
 
   //   MUI Slider marks

@@ -61,7 +61,6 @@ const SelectProvider = () => {
   };
 
   useEffect(() => {
-    console.log("selected hai yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
     console.log(selectedProvider);
   }, [selectedProvider]);
 

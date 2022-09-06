@@ -149,7 +149,7 @@ const ProviderScorePage2 = () => {
                   <ProviderComments2 />
                 </div>
               </div>
-              <div className="">
+              <div className=" flex-[30%]">
                 <div>
                   <ProviderNPS2 />
                 </div>
@@ -176,7 +176,11 @@ const ProviderScorePage2 = () => {
             //   <div className="border border-red-500">first</div>
             //   <div className="border border-red-500">second</div>
             // </div>
-            <div>2</div>
+            <div className="min-h-[80vh]  w-full text-3xl text-gray-400 flex justify-center items-center">
+              {providerComponentApi?.Message === "ERROR" && (
+                <div className="">{providerComponentApi?.Comment}</div>
+              )}
+            </div>
           )}
         </div>
       ) : (

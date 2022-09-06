@@ -535,6 +535,7 @@ const NPSDashboard = () => {
             authorization: sessionStorage.getItem("token"),
             Accept: "application/json",
           },
+          defaultArray,
         }
       );
       setTimeout(() => setNegativeCommentAtom(negative_comments?.data), 50);

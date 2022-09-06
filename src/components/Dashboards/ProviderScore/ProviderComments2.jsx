@@ -105,6 +105,10 @@ const ProviderComments2 = () => {
     );
   };
 
+  // SENTIMENT COUNT
+  const [providerSentiment, setProviderSentiment] = useRecoilState(
+    providerSentimentCountAtom
+  );
   //   truncating description if it contains more then desired no. of characters
   function truncate(string, n) {
     return (
@@ -160,11 +164,10 @@ const ProviderComments2 = () => {
     setTotalFilteredComments(apiData?.length);
   }, [apiData]);
 
-  const [setimentCount, setSentimentCount] = useState({});
+  // const [setimentCount, setSentimentCount] = useState({});
   useEffect(() => {
     const count = {};
     for (let i = 0; i <= apiData?.length; i++) {
-      console.log("Finding sentiments", apiData[i]);
       const element = apiData[i]?.label;
 
       if (count[element]) {
@@ -173,12 +176,15 @@ const ProviderComments2 = () => {
         count[element] = 1;
       }
     }
-    console.log(count);
-    setSentimentCount(count);
+    console.log("Sentiment Counts:", count);
+    setProviderSentiment(count);
+
+    // let positive = count.Positive;
+    // let negative = count.Negative;
+    // let neutral = count.Neutral;
+    // let extrmes = count.Extremes;
   }, [apiData]);
-  useEffect(() => {
-    console.log(setSentimentCount);
-  }, []);
+
   return (
     <div className="w-[100%]   border  p-2  rounded-lg bg-white">
       {!apiData && (
@@ -251,13 +257,13 @@ const ProviderComments2 = () => {
               </a>
             </div>
           </div>
-          <div className=" h-[600px]  ">
+          <div className=" h-[500px]  ">
             {apiData?.length === 0 ? (
               <div className="h-full w-full flex justify-center items-center text-gray-400">
                 No Comments
               </div>
             ) : (
-              <div className="h-[600px] overflow-y-scroll ">
+              <div className="h-[500px] overflow-y-scroll ">
                 <div className="text-[12px] p-3 pb-0 w-full  ">
                   <div className=" sticky bg-white top-0 z-[5] ">
                     <div className=" grid grid-cols-[60px_minmax(150px,700px)_minmax(150px,1fr)] gap-1   min-w-[600px]  text-[12px] text-gray-500 uppercase font-normal bg-white border-b-2 ">
