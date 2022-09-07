@@ -137,6 +137,8 @@ const NPSDashboard = () => {
     "clinicData",
     "clientData",
     "npsAverageGraph",
+    // 1.new api name
+
     "filterRegion",
     "filterClinic",
     "filterClient",
@@ -248,6 +250,7 @@ const NPSDashboard = () => {
     setProviderApiAtom(null);
     setClientApiAtom(null);
     setAvgNPS(null);
+    // 2. create recoil var of new api and set null
 
     // API Calls
     if (sendDataStatus === true && usernameLocal) {
@@ -470,6 +473,22 @@ const NPSDashboard = () => {
         setAvgNPS(avgNps?.data);
         setAllDataRecievedStatus(true);
       });
+
+      // const avgNps = await axios.post(
+      //   linksArray[15], ---> 16
+      //   formdata,
+
+      //   {
+      //     headers: {
+      //       authorization: sessionStorage.getItem("token"),
+      //       Accept: "application/json",
+      //     },
+      //   }
+      // );
+      // setTimeout(() => {
+      //   setAvgNPS(avgNps?.data); ---> recoil state
+      // setAllDataRecievedStatus(true); ----> should be only at last (atlast remove from above)
+      // });
     }
 
     // ELSE

@@ -176,7 +176,7 @@ const ProviderComments2 = () => {
         count[element] = 1;
       }
     }
-    console.log("Sentiment Counts:", count);
+    // console.log("Sentiment Counts:", count);
     setProviderSentiment(count);
 
     // let positive = count.Positive;

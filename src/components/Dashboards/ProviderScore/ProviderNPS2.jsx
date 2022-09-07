@@ -74,19 +74,24 @@ const ProviderNPS2 = () => {
 
   const NPSComponentDetailedCardComponent = useRef();
 
+  useEffect(() => {
+    console.log("NSS new----");
+    console.log(providerComponentApi?.provider_nps);
+  }, [providerComponentApi]);
+
   return (
     <>
       <div
         className="p-2 md:p-5  w-full border  rounded-lg bg-white flex justify-center md:justify-center items-center relative  "
         ref={NPSComponentDetailedCardComponent}
       >
-        {!apiData?.nps && (
+        {!providerComponentApi && (
           <div className="min-h-[130px] bg-[#ffffff] z-[00] rounded-lg flex justify-center items-center">
             <PuffLoader color="#00ac69" size={50} width={100} />
           </div>
         )}
 
-        {apiData?.nps && (
+        {providerComponentApi && (
           <div className="w-full  relative ">
             <div className=" font-bold  flex justify-between gap-2 items-center">
               <div className="opacity-80">Net Promoter Score</div>
@@ -150,8 +155,8 @@ const ProviderNPS2 = () => {
                 <div className="text-center flex flex-col justify-center items-center gap-2">
                   <img src={PromoterIcon} alt="promoters" />
                   <h1 className="text-sm md:text-xl font-medium opacity-80">
-                    {providerComponentApi?.provider_nps?.promoters < 1 ? (
-                      providerComponentApi?.provider_nps?.promoters + "%"
+                    {providerComponentApi?.provider_nps?.promoter < 1 ? (
+                      providerComponentApi?.provider_nps?.promoter + "%"
                     ) : (
                       <CountUp
                         start={0}

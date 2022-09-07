@@ -25,6 +25,8 @@ const NSSCard = () => {
 
   const NPSComponent = useRef();
 
+  console.log("Percentage data: ", apiData?.nss?.neutral);
+
   return (
     <div
       className="p-2 md:py-5 2xl:px-5 w-full border  rounded-lg bg-white "

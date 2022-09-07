@@ -20,6 +20,7 @@ const ProviderInfo2 = () => {
   useEffect(() => {
     console.log("Date Selected ATom:", providerInfoDateFromRecoil);
   }, [providerInfoDateFromRecoil]);
+
   return (
     <>
       <div className="w-[100%]   border  p-4  rounded-lg bg-white">

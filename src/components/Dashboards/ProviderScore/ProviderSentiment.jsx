@@ -13,8 +13,12 @@ import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import { exportComponentAsPNG } from "react-component-export-image";
 import providerSentimentCountAtom from "../../../recoil/atoms/providerSentimentCountAtom";
+import providerComponentAPIData from "../../../recoil/atoms/providerComponentAPIData";
 
 const ProviderSentiment = () => {
+  const [providerComponentApi, setProviderComponentApi] = useRecoilState(
+    providerComponentAPIData
+  );
   const [nssApiData, setNssApiData] = useRecoilState(nssAPIdata);
   const [apiData, setApiData] = useState();
 
@@ -29,6 +33,11 @@ const ProviderSentiment = () => {
   );
 
   const NPSComponent = useRef();
+
+  useEffect(() => {
+    console.log("Scorigmgmgmgmg");
+    console.log(providerComponentApi);
+  }, [providerComponentApi]);
 
   return (
     <div
@@ -111,13 +120,13 @@ const ProviderSentiment = () => {
               <div className="text-center flex flex-col justify-center items-center gap-2">
                 <img src={PositiveIcon} alt="positive" />
                 <h1 className="text-sm md:text-xl font-medium opacity-80">
-                  {providerSentiCount?.Positive < 1 ? (
-                    providerSentiCount?.Positive + "%"
+                  {providerComponentApi?.nss?.positive < 1 ? (
+                    providerComponentApi?.nss?.positive + "%"
                   ) : (
                     <CountUp
                       start={0}
                       duration={1}
-                      end={providerSentiCount?.Positive}
+                      end={providerComponentApi?.nss?.positive}
                       separator=","
                       suffix="%"
                     />
@@ -129,13 +138,13 @@ const ProviderSentiment = () => {
               <div className="text-center flex flex-col justify-center items-center gap-2">
                 <img src={NeutralIcon} alt="neutral" />
                 <h1 className="text-sm md:text-xl font-medium opacity-80">
-                  {providerSentiCount?.Neutral < 1 ? (
-                    providerSentiCount?.Neutral + "%"
+                  {providerComponentApi?.nss?.neutral < 1 ? (
+                    providerComponentApi?.nss?.neutral + "%"
                   ) : (
                     <CountUp
                       start={0}
                       duration={1}
-                      end={providerSentiCount?.Neutral}
+                      end={providerComponentApi?.nss?.neutral}
                       separator=","
                       suffix="%"
                     />
@@ -147,13 +156,13 @@ const ProviderSentiment = () => {
               <div className="text-center flex flex-col justify-center items-center gap-2">
                 <img src={NegativeIcon} alt="passives" />
                 <h1 className="text-sm md:text-xl font-medium opacity-80">
-                  {providerSentiCount?.Negative < 1 ? (
-                    providerSentiCount?.Negative + "%"
+                  {providerComponentApi?.nss?.negative < 1 ? (
+                    providerComponentApi?.nss?.negative + "%"
                   ) : (
                     <CountUp
                       start={0}
                       duration={1}
-                      end={providerSentiCount?.Negative}
+                      end={providerComponentApi?.nss?.negative}
                       separator=","
                       suffix="%"
                     />
@@ -165,13 +174,13 @@ const ProviderSentiment = () => {
               <div className="text-center flex flex-col justify-center items-center gap-2">
                 <img src={ExtremeIcon} alt="extremes" />
                 <h1 className="text-sm md:text-xl font-medium opacity-80">
-                  {providerSentiCount?.Negative?.Extreme < 1 ? (
-                    providerSentiCount?.Negative?.Extreme + "%"
+                  {providerComponentApi?.nss?.neutral.extreme < 1 ? (
+                    providerComponentApi?.nss?.neutral.extreme + "%"
                   ) : (
                     <CountUp
                       start={0}
                       duration={1}
-                      end={providerSentiCount?.Negative?.Extreme}
+                      end={providerComponentApi?.nss?.extreme}
                       separator=","
                       suffix="%"
                     />

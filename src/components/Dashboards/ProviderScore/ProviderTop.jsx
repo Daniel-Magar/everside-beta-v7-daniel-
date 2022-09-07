@@ -14,9 +14,13 @@ import newRegionGlobalValue from "../../../recoil/atoms/newRegionGlobalValue";
 import { BASE_API_LINK } from "../../../utils/BaseAPILink";
 import clientValue from "../../../recoil/atoms/clientValue";
 import providerSentimentCountAtom from "../../../recoil/atoms/providerSentimentCountAtom";
+import providerComponentAPIData from "../../../recoil/atoms/providerComponentAPIData";
 
 const ProviderTop = () => {
   const [apiData, setApiData] = useState();
+  const [providerComponentApi, setProviderComponentApi] = useRecoilState(
+    providerComponentAPIData
+  );
   const [providerApiAtom, setProviderApiAtom] =
     useRecoilState(providersApiData);
 
@@ -41,6 +45,7 @@ const ProviderTop = () => {
   useEffect(() => {
     setUsernameLocal(sessionStorage?.getItem("username"));
     <div>ProviderTop</div>;
+    providerComponentApi;
   }, [sessionStorage?.getItem("username")]);
 
   const [finalStartDate, setFinalStartDate] = useRecoilState(startDateValue);
@@ -55,6 +60,39 @@ const ProviderTop = () => {
   const [selectedClientValue, setSelectedClientValue] =
     useRecoilState(clientValue);
 
+  const [providerAllTopics, setProviderAllTopics] = useState([]);
+  useEffect(() => {
+    let Positive = [];
+    let Negative = [];
+    let AllTopics = [];
+
+    for (let i in providerComponentApi?.top_positive) {
+      let obj = {};
+      obj["top_positive_topic"] = providerComponentApi?.top_positive[i];
+      Positive.push(obj);
+    }
+    for (let i in providerComponentApi?.top_negative) {
+      let obj = {};
+      obj["top_negative_topic"] = providerComponentApi?.top_negative[i];
+      Negative.push(obj);
+    }
+    AllTopics.push(Positive);
+    AllTopics.push(Negative);
+    console.log("After .........");
+    console.log(AllTopics);
+
+    setProviderAllTopics(AllTopics);
+  }, [providerComponentApi]);
+
+  useEffect(() => {
+    console.log("All topics rendering");
+    console.log(providerAllTopics);
+  }, [providerAllTopics]);
+  useEffect(() => {
+    console.log("ppppppppppppppppp");
+    console.log(providerAllTopics);
+  }, [providerAllTopics]);
+
   return (
     <div className=" rounded-lg bg-white transition-all w-[100%] p-2 h-[388px] border">
       {apiData?.data?.length === 0 && (
@@ -68,6 +106,7 @@ const ProviderTop = () => {
           <h1 className=" text-left font-bold  flex-1 px-2 opacity-80 text-[#000C08]">
             Providers Top Comments
           </h1>
+
           <div className="flex items-center gap-2">
             <div className=" rounded-md  flex justify-end items-center ">
               <input
@@ -140,126 +179,75 @@ const ProviderTop = () => {
             </thead>
 
             <tbody>
-              <tr className=" h-[50px] ">
-                <td className="w-[15%] px-1">
-                  <div className=" text-gray-500 text-xs flex  items-center ">
-                    Professionalism
-                  </div>
-                </td>
-                <td className="w-[20%] px-1">
-                  <div className="text-gray-500 text-xs flex  items-center">
-                    Unskilled
-                  </div>
-                </td>
-                <td className="w-[5%] px-1">
-                  <div className="text-sm text-gray-500  my-auto">5</div>
-                </td>
-                <td className="w-[5%] px-1">
-                  <div className="text-sm text-gray-500  my-auto">6</div>
-                </td>
-                <td className="w-[24%] px-1">
-                  <div className="w-[100%] flex justify-start items-center">
-                    <div
-                      style={{
-                        width: "70%",
-                      }}
-                      className="bg-[#0094DE] h-[25px] min-w-[15%] py-1 text-white text-center rounded-r-md flex justify-end items-center pr-1"
-                    >
-                      70
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr className=" h-[50px] ">
-                <td className="w-[15%] px-1">
-                  <div className=" text-gray-500 text-xs flex  items-center ">
-                    Concerned
-                  </div>
-                </td>
-                <td className="w-[20%] px-1">
-                  <div className="text-gray-500 text-xs flex  items-center">
-                    skilled
-                  </div>
-                </td>
-                <td className="w-[5%] px-1">
-                  <div className="text-sm text-gray-500  my-auto">8</div>
-                </td>
-                <td className="w-[5%] px-1">
-                  <div className="text-sm text-gray-500  my-auto">9</div>
-                </td>
-                <td className="w-[24%] px-1">
-                  <div className="w-[100%] flex justify-start items-center">
-                    <div
-                      style={{
-                        width: "70%",
-                      }}
-                      className="bg-[#0094DE] h-[25px] min-w-[15%] py-1 text-white text-center rounded-r-md flex justify-end items-center pr-1"
-                    >
-                      70
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr className=" h-[50px] ">
-                <td className="w-[15%] px-1">
-                  <div className=" text-gray-500 text-xs flex  items-center ">
-                    Concerned
-                  </div>
-                </td>
-                <td className="w-[20%] px-1">
-                  <div className="text-gray-500 text-xs flex  items-center">
-                    skilled
-                  </div>
-                </td>
-                <td className="w-[5%] px-1">
-                  <div className="text-sm text-gray-500  my-auto">8</div>
-                </td>
-                <td className="w-[5%] px-1">
-                  <div className="text-sm text-gray-500  my-auto">9</div>
-                </td>
-                <td className="w-[24%] px-1">
-                  <div className="w-[100%] flex justify-start items-center">
-                    <div
-                      style={{
-                        width: "70%",
-                      }}
-                      className="bg-[#0094DE] h-[25px] min-w-[15%] py-1 text-white text-center rounded-r-md flex justify-end items-center pr-1"
-                    >
-                      70
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr className=" h-[50px] ">
-                <td className="w-[15%] px-1">
-                  <div className=" text-gray-500 text-xs flex  items-center ">
-                    Concerned
-                  </div>
-                </td>
-                <td className="w-[20%] px-1">
-                  <div className="text-gray-500 text-xs flex  items-center">
-                    skilled
-                  </div>
-                </td>
-                <td className="w-[5%] px-1">
-                  <div className="text-sm text-gray-500  my-auto">8</div>
-                </td>
-                <td className="w-[5%] px-1">
-                  <div className="text-sm text-gray-500  my-auto">9</div>
-                </td>
-                <td className="w-[24%] px-1">
-                  <div className="w-[100%] flex justify-start items-center">
-                    <div
-                      style={{
-                        width: "70%",
-                      }}
-                      className="bg-[#0094DE] h-[25px] min-w-[15%] py-1 text-white text-center rounded-r-md flex justify-end items-center pr-1"
-                    >
-                      70
-                    </div>
-                  </div>
-                </td>
-              </tr>
+              {providerComponentApi?.top_negative?.length >
+              providerComponentApi?.top_positive?.length
+                ? providerComponentApi?.top_negative?.map((data, idx) => {
+                    return (
+                      <tr className=" h-[50px]">
+                        <td className="w-[15%] px-1">
+                          <div className=" text-gray-500 text-xs flex  items-center ">
+                            {data}
+                          </div>
+                        </td>
+                        <td className="w-[20%] px-1">
+                          <div className="text-gray-500 text-xs flex  items-center">
+                            {providerComponentApi?.top_positive[idx]}
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })
+                : providerComponentApi?.top_positive?.map((data, idx) => {
+                    return (
+                      <tr className=" h-[50px]">
+                        <td className="w-[15%] px-1">
+                          <div className=" text-gray-500 text-xs flex  items-center ">
+                            {data}
+                          </div>
+                        </td>
+                        <td className="w-[20%] px-1">
+                          <div className="text-gray-500 text-xs flex  items-center">
+                            {providerComponentApi?.top_negative[idx]}
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+
+              {/* {providerAllTopics.map((data, index) => {
+                return (
+                  <tr className=" h-[50px]" key={index}>
+                    <td className="w-[15%] px-1" key={index}>
+                      <div className=" text-gray-500 text-xs flex  items-center ">
+                        {data.top_positive_topic}
+                      </div>
+                    </td>
+                    <td className="w-[20%] px-1">
+                      <div className="text-gray-500 text-xs flex  items-center">
+                        {data.top_negative_topic}
+                      </div>
+                    </td>
+                    <td className="w-[5%] px-1">
+                      <div className="text-sm text-gray-500  my-auto">5</div>
+                    </td>
+                    <td className="w-[5%] px-1">
+                      <div className="text-sm text-gray-500  my-auto">6</div>
+                    </td>
+                    <td className="w-[24%] px-1">
+                      <div className="w-[100%] flex justify-start items-center">
+                        <div
+                          style={{
+                            width: "70%",
+                          }}
+                          className="bg-[#0094DE] h-[25px] min-w-[15%] py-1 text-white text-center rounded-r-md flex justify-end items-center pr-1"
+                        >
+                          70
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })} */}
             </tbody>
           </table>
         </div>
