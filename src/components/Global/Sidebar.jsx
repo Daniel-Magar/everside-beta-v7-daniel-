@@ -200,7 +200,113 @@ const Sidebar = () => {
                   />
                 }
               />
+              <div className={`mt-[10px] w-[90%] ml-auto `}>
+                <SidebarMiniLink
+                  iconName="Provider_Score_Com"
+                  pageName={activePageValue}
+                  linkName="Provider Score2"
+                  onClick={() => {
+                    setPageName("/");
+                    setComponentNameValue("/");
+                    setHamburgerStatus(!hamburgerStatus);
+                    setActivePageValue("Provider_Score_Com");
+                  }}
+                  icon={
+                    <NPSDashboardIcon
+                      bgColor={bgColorValue}
+                      strokeColor={strokeColor}
+                      iconName="Provider_Score_Com"
+                      pageName={activePageValue}
+                    />
+                  }
+                />
+              </div>
             </div>
+
+            {/* <div className="mb-[30px]">
+              <SidebarLink
+                iconName="/"
+                pageName={pageName}
+                linkName="NPS"
+                onClick={() => {
+                  setPageName("/");
+                  setComponentNameValue("/");
+                  // setChildNPSLinkStatus(!childNPSLinkStatus);
+                  setHamburgerStatus(!hamburgerStatus);
+                  setActivePageValue("NPS_Overall");
+                }}
+                icon={
+                  <NPSDashboardIcon
+                    bgColor={bgColorValue}
+                    strokeColor={strokeColor}
+                    iconName="/"
+                    pageName={pageName}
+                  />
+                }
+              />
+
+              <div className={`mt-[10px] w-[90%] ml-auto `}>
+                <SidebarMiniLink
+                  iconName="NPS_Analysis"
+                  pageName={activePageValue}
+                  linkName="NPS Analysis"
+                  onClick={() => {
+                    setPageName("/");
+                    setComponentNameValue("/");
+                    setHamburgerStatus(!hamburgerStatus);
+                    setActivePageValue("NPS_Analysis");
+                  }}
+                  icon={
+                    <NPSDashboardIcon
+                      bgColor={bgColorValue}
+                      strokeColor={strokeColor}
+                      iconName="NPS_Analysis"
+                      pageName={activePageValue}
+                    />
+                  }
+                />
+
+                <SidebarMiniLink
+                  iconName="NSS_Analysis"
+                  pageName={activePageValue}
+                  linkName="Sentiments"
+                  onClick={() => {
+                    setPageName("/");
+                    setComponentNameValue("/");
+                    setHamburgerStatus(!hamburgerStatus);
+                    setActivePageValue("NSS_Analysis");
+                  }}
+                  icon={
+                    <NPSDashboardIcon
+                      bgColor={bgColorValue}
+                      strokeColor={strokeColor}
+                      iconName="NSS_Analysis"
+                      pageName={activePageValue}
+                    />
+                  }
+                />
+
+                <SidebarMiniLink
+                  iconName="Comments"
+                  pageName={activePageValue}
+                  linkName="Comments"
+                  onClick={() => {
+                    setPageName("/");
+                    setComponentNameValue("/");
+                    setHamburgerStatus(!hamburgerStatus);
+                    setActivePageValue("Comments");
+                  }}
+                  icon={
+                    <NPSDashboardIcon
+                      bgColor={bgColorValue}
+                      strokeColor={strokeColor}
+                      iconName="Comments"
+                      pageName={activePageValue}
+                    />
+                  }
+                />
+              </div>
+            </div> */}
 
             {/* <div className="mb-[30px] invisible">
               <Link to="/SDOH">

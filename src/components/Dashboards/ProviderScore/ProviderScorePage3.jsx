@@ -29,13 +29,10 @@ import providerComponentAPIData from "../../../recoil/atoms/providerComponentAPI
 import selectedProviderAtom from "../../../recoil/atoms/selectedProviderAtom";
 import providersApiDataProviderPage from "../../../recoil/atoms/providersApiDataProviderPage";
 import activeInnerPage from "../../../recoil/atoms/activeInnerPage";
-import ProviderInfo2 from "./ProviderInfo2";
-import ProviderComments2 from "./ProviderComments2";
-import ProviderNPS2 from "./ProviderNPS2";
-import ProviderSentiment from "./ProviderSentiment";
-import ProviderTop from "./ProviderTop";
 
-const ProviderScorePage2 = () => {
+const ProviderScorePage3 = () => {
+  // Global Variables
+
   const [callRegion, setCallRegion] = useRecoilState(regionStatusProvider);
   const [finalStartDate, setFinalStartDate] = useRecoilState(
     startDateValueProvider
@@ -132,64 +129,47 @@ const ProviderScorePage2 = () => {
       }
     }
   }, [callRegion, usernameLocal]);
+
   return (
     <div className=" min-h-[90vh]">
-      <ProviderFilter2 />
+      kdd
+      {/* <ProviderFilter2 />
       <SelectProvider />
-      {providerComponentApi ? (
-        <div>
-          {providerComponentApi?.Message === "TRUE" ? (
-            <div className="flex flex-col lg:flex-row gap-4 ">
-              <div className=" flex-[70%]">
-                <div>
-                  <ProviderInfo2 />
+      <div className=" ">
+        {providerComponentApi ? (
+          <div>
+            {providerComponentApi?.Message === "TRUE" ? (
+              <div>
+                <div className="flex items-center gap-2 flex-col lg:flex-row  ">
+                  <div className="flex flex-col md:flex-row items-center gap-2 flex-1 lg:flex-[0.8] w-full ">
+                    <ProviderInfo />
+                    <div className="h-[300px] flex-1 md:flex-[0.7] border w-full rounded-md">
+                      <ProviderNPS />
+                    </div>
+                  </div>
+                  <ProviderTotalCard />
                 </div>
-
-                <div className="my-5">
-                  <ProviderComments2 />
-                </div>
-              </div>
-              <div className=" flex-[30%]">
-                <div>
-                  <ProviderNPS2 />
-                </div>
-                <div className="my-2">
-                  <ProviderSentiment />
-                </div>
-                <div className="my-2">
-                  <ProviderTop />
+                <div className="flex  flex-col 2xl:flex-row items-center gap-2 my-2">
+                  <ProviderComments />
+                  <ProviderAllGraph />
                 </div>
               </div>
-            </div>
-          ) : (
-            // <div class="grid grid-cols-5 gap-3">
-            //   <div class="bg-blue-100 col-span-3">
-
-            //   </div>
-            //   <div class="bg-red-100 col-span-2">2nd col</div>
-            // </div>
-            // <div class="grid grid-cols-2 gap-4">
-            //   <div className="border border-red-500">first</div>
-            //   <div className="border border-red-500">second</div>
-            // </div>
-            // <div class="grid grid-cols-2 gap-4">
-            //   <div className="border border-red-500">first</div>
-            //   <div className="border border-red-500">second</div>
-            // </div>
-            <div className="min-h-[80vh]  w-full text-3xl text-gray-400 flex justify-center items-center">
-              {providerComponentApi?.Message === "ERROR" && (
-                <div className="">{providerComponentApi?.Comment}</div>
-              )}
-            </div>
-          )}
-        </div>
-      ) : (
-        <div className="min-h-[80vh]  w-full text-3xl text-gray-400 flex justify-center items-center">
-          Select a provider to display analytics
-        </div>
-      )}
+            ) : (
+              <div className="min-h-[80vh]  w-full text-3xl text-gray-400 flex justify-center items-center">
+                {providerComponentApi?.Message === "ERROR" && (
+                  <div className="">{providerComponentApi?.Comment}</div>
+                )}
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="min-h-[80vh]  w-full text-3xl text-gray-400 flex justify-center items-center">
+            Select a provider to display analytics
+          </div>
+        )}
+      </div> */}
     </div>
   );
 };
 
-export default ProviderScorePage2;
+export default ProviderScorePage3;

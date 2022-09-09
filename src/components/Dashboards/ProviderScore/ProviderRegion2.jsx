@@ -68,6 +68,10 @@ const ProviderRegion2 = () => {
   const [regionSubmit, setRegionSubmit] = useState(false);
   const [usernameLocal, setUsernameLocal] = useState();
 
+  useEffect(() => {
+    console.log("****************************");
+  }, []);
+
   // Flushing region list
   useEffect(() => {
     if (flushRegionValue === true) {

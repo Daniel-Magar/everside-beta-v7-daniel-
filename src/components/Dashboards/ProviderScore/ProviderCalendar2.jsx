@@ -97,13 +97,6 @@ const ProviderCalendar2 = () => {
   const [endMonthNumVal, setEndMonthNumVal] = useState(8);
   const [usernameLocal, setUsernameLocal] = useState();
 
-  useEffect(() => {
-    console.log("finalStartDate: ", typeof finalStartDate);
-    console.log("finalEndDate: ", typeof finalEndDate);
-    console.log("finalStartMonth: ", typeof finalStartMonth);
-    console.log("finalEndMonth: ", finalEndMonth);
-  }, [finalStartDate, finalEndDate, finalStartMonth, finalEndMonth]);
-
   //To display selected Month in provider info
 
   useEffect(() => {

@@ -140,7 +140,11 @@ const ProviderNPS2 = () => {
                   </div>
                 </div>
 
-                <button onClick={() => exportComponentAsPNG(NPSComponent)}>
+                <button
+                  onClick={() =>
+                    exportComponentAsPNG(NPSComponentDetailedCardComponent)
+                  }
+                >
                   <FileDownloadOutlinedIcon
                     fontSize="small"
                     className="text-gray-400"

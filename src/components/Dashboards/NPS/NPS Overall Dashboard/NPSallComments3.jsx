@@ -436,7 +436,7 @@ const NPSallComments3 = () => {
                                   {data?.timestamp}
                                 </div>
                                 <div className="text-gray-400 capitalize font-normal text-[12px]">
-                                  dsfsd
+                                  Provider Name
                                 </div>
 
                                 <div className=" text-gray-400   text-left font-normal  ">

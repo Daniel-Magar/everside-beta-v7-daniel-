@@ -45,6 +45,7 @@ import runClientAPIatom from "../../../../recoil/atoms/runClientAPIatom";
 import AvgNPSAtom from "../../../../recoil/atoms/AvgNPSAtom";
 import ProviderScorePage from "../../ProviderScore/ProviderScorePage";
 import ProviderScorePage2 from "../../ProviderScore/ProviderScorePage2";
+import ProviderScorePage3 from "../../ProviderScore/ProviderScorePage3";
 
 const NPSDashboard = () => {
   const [baseAPI, setBaseAPI] = useState(BASE_API_LINK);
@@ -726,8 +727,9 @@ const NPSDashboard = () => {
       {activePageValue === "NSS_Analysis" ? <NSSAnalysisPage /> : ""}
       {activePageValue === "Comments" ? <CommentsPage /> : ""}
       {activePageValue === "Engagement_Model" ? <EngagementModel /> : ""}
-      {/* {activePageValue === "Provider_Score" ? <ProviderScorePage /> : ""} */}
-      {activePageValue === "Provider_Score" ? <ProviderScorePage2 /> : ""}
+      {activePageValue === "Provider_Score" ? <ProviderScorePage /> : ""}
+      {/* {activePageValue === "Provider_Score" ? <ProviderScorePage2 /> : ""} */}
+      {activePageValue === "Provider_Score_Com" ? <ProviderScorePage3 /> : ""}
     </div>
   );
 };
