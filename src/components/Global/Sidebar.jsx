@@ -206,8 +206,8 @@ const Sidebar = () => {
                   pageName={activePageValue}
                   linkName="Provider Score2"
                   onClick={() => {
-                    setPageName("/");
-                    setComponentNameValue("/");
+                    setPageName("Provider_Score");
+                    setComponentNameValue("Provider_Score");
                     setHamburgerStatus(!hamburgerStatus);
                     setActivePageValue("Provider_Score_Com");
                   }}

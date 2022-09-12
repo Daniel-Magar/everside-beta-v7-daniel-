@@ -29,6 +29,8 @@ import providerComponentAPIData from "../../../recoil/atoms/providerComponentAPI
 import selectedProviderAtom from "../../../recoil/atoms/selectedProviderAtom";
 import providersApiDataProviderPage from "../../../recoil/atoms/providersApiDataProviderPage";
 import activeInnerPage from "../../../recoil/atoms/activeInnerPage";
+import ProviderSentiment from "./ProviderSentiment";
+import ProviderTop from "./ProviderTop";
 
 const ProviderScorePage3 = () => {
   // Global Variables
@@ -140,17 +142,30 @@ const ProviderScorePage3 = () => {
             {providerComponentApi?.Message === "TRUE" ? (
               <div>
                 <div className="flex items-center gap-2 flex-col lg:flex-row  ">
-                  <div className="flex flex-col md:flex-row items-center gap-2 flex-1 lg:flex-[0.8] w-full ">
+                  <div className="flex flex-col md:flex-row items-center gap-2 flex-1 lg:flex-[0.5] w-full ">
                     <ProviderInfo />
                     <div className="h-[300px] flex-1 md:flex-[0.7] border w-full rounded-md">
                       <ProviderNPS />
                     </div>
                   </div>
+                  <div className="h-[300px] md:flex-[0.3]  w-full rounded-md">
+                    <div className="gap-2 ">
+                      <ProviderSentiment />
+                    </div>
+                    <div className="gap-2 my-2">
+                      <ProviderTop />
+                    </div>
+                  </div>
+
                   <ProviderTotalCard />
                 </div>
-                <div className="flex  flex-col 2xl:flex-row items-center gap-2 my-2">
-                  <ProviderComments />
-                  <ProviderAllGraph />
+                <div className="flex flex-col 2xl:flex-row items-center gap-2 my-2">
+                  <div className="w-full">
+                    <ProviderComments />
+                  </div>
+                  <div className="w-full">
+                    <ProviderAllGraph />
+                  </div>
                 </div>
               </div>
             ) : (

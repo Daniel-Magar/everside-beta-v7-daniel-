@@ -28,7 +28,7 @@ const ProviderInfo2 = () => {
 
   return (
     <>
-      <div className="w-[100%]   border  p-2  rounded-lg bg-white">
+      <div className=" border  p-2  rounded-lg bg-white">
         {!providerComponentApi && (
           <div className="h-full w-full bg-[#ffffff] z-[200] rounded-lg flex justify-center items-center">
             <PuffLoader color="#00ac69" size={50} width={100} />

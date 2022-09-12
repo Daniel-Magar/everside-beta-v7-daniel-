@@ -41,7 +41,7 @@ const ProviderSentiment = () => {
 
   return (
     <div
-      className="p-2 md:py-5 2xl:px-5 w-full border  rounded-lg bg-white "
+      className="p-2 md:py-2 2xl:px-5 w-full border  rounded-lg bg-white "
       ref={NPSComponent}
     >
       {!apiData?.nss && (
@@ -53,7 +53,7 @@ const ProviderSentiment = () => {
       {apiData?.nss && (
         <div>
           <div className=" font-bold  flex justify-between gap-2 items-center">
-            <div className="opacity-80">Sentiments</div>
+            <div className="opacity-80 mb-3">Sentiments</div>
 
             <div className="flex items-center gap-2">
               <button onClick={() => exportComponentAsPNG(NPSComponent)}>

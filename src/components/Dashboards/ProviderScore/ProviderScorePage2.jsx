@@ -31,6 +31,7 @@ import providersApiDataProviderPage from "../../../recoil/atoms/providersApiData
 import activeInnerPage from "../../../recoil/atoms/activeInnerPage";
 import ProviderInfo2 from "./ProviderInfo2";
 import ProviderComments2 from "./ProviderComments2";
+
 import ProviderNPS2 from "./ProviderNPS2";
 import ProviderSentiment from "./ProviderSentiment";
 import ProviderTop from "./ProviderTop";
@@ -139,23 +140,27 @@ const ProviderScorePage2 = () => {
       {providerComponentApi ? (
         <div>
           {providerComponentApi?.Message === "TRUE" ? (
-            <div className="flex flex-col lg:flex-row gap-4 ">
-              <div className=" flex-[70%]">
+            <div className="flex flex-col lg:flex-row gap-4 lg:flex-grow">
+              <div className="lg:w-[70%]">
                 <div>
                   <ProviderInfo2 />
                 </div>
 
                 <div className="my-5">
-                  <ProviderComments2 />
+                  {/* <ProviderComments2 /> */}
+                  <ProviderComments />
                 </div>
               </div>
-              <div className=" flex-[30%]">
-                <div>
-                  <ProviderNPS2 />
+              <div className="lg:w-[30%] ">
+                <div className="flex flex-row lg:flex lg:flex-col items-center gap-1 justify-between">
+                  <div className="w-full ">
+                    <ProviderNPS2 />
+                  </div>
+                  <div className=" w-full my-5">
+                    <ProviderSentiment />
+                  </div>
                 </div>
-                <div className="my-2">
-                  <ProviderSentiment />
-                </div>
+
                 <div className="my-2">
                   <ProviderTop />
                 </div>

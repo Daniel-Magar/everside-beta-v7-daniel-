@@ -81,8 +81,8 @@ const ProviderNPS = () => {
       {providerComponentApi && (
         <div className=" w-full  ">
           <div className=" font-bold  flex justify-between gap-2 items-center mb-7">
-            <div className="font-bold opacity-80 text-[18px] ">
-              Provider NPS
+            <div className="font-bold opacity-80 text-[14px] md:text-[16px] lg:text-[18px] ">
+              Net Promoter Score
             </div>
 
             <div className="flex items-center gap-2">
@@ -150,9 +150,9 @@ const ProviderNPS = () => {
             </div>
           </div>
 
-          <div className="flex gap-5 items-center flex-col-reverse sm:flex-row  ">
-            <div className=" w-full flex-1 sm:flex-[0.7]  ">
-              <div className=" w-[100%]  ml-auto">
+          <div className="flex gap-5 items-center flex-col-reverse sm:flex-row">
+            <div className=" w-full flex-1  ">
+              <div className=" w-full ml-auto ">
                 {/* Promoters */}
                 <div>
                   <div className="flex items-center px-3">
@@ -300,9 +300,9 @@ const ProviderNPS = () => {
                 </div>
               </div>
             </div>
-
+            {/* 
             <div className="relative flex-[0.3]     ">
-              {/* Pie graph */}
+           
               <div className="absolute  top-[50%]  left-[50%] translate-x-[-50%] translate-y-[-50%] ">
                 <div className="flex flex-col justify-center items-center">
                   <h1 className="text-[18px] opacity-40">NPS</h1>
@@ -346,7 +346,7 @@ const ProviderNPS = () => {
                   </PieChart>
                 </ResponsiveContainer>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

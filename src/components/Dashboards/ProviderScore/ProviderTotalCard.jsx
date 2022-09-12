@@ -11,7 +11,7 @@ const ProviderTotalCard = () => {
     <div className="h-[300px] w-full flex-1  lg:flex-[0.2]  rounded-md grid grid-cols-4 lg:grid-cols-2 gap-2 ">
       <div className="flex justify-center flex-col items-center  text-xl rounded-md border p-4">
         <h1 className="text-[#000C08] opacity-40 text-[10px] md:text-[14px]">
-          Members
+          Patient
         </h1>
         <h3 className="text-sm sm:text-base md:text-xl font-semibold mt-2 text-[#000C08] opacity-80">
           {providerComponentApi?.provider_total_card?.member_count}
@@ -19,23 +19,23 @@ const ProviderTotalCard = () => {
       </div>
       <div className="flex justify-center flex-col items-center  text-xl rounded-md border p-4">
         <h1 className="text-[#000C08] opacity-40 text-[10px] md:text-[14px]">
-          Alerts
+          Encounter
         </h1>
         <h3 className="text-sm sm:text-base md:text-xl font-semibold mt-2 text-[#000C08] opacity-80">
-          {providerComponentApi?.provider_total_card?.alerts_count}
+          {providerComponentApi?.provider_info?.encounter}
         </h3>
       </div>
       <div className="flex justify-center flex-col items-center  text-xl rounded-md border p-4">
         <h1 className="text-[#000C08] opacity-40 text-[10px] md:text-[14px]">
-          Reasons
+          Surveys
         </h1>
         <h3 className="text-sm sm:text-base md:text-xl font-semibold mt-2 text-[#000C08] opacity-80">
-          {providerComponentApi?.provider_total_card?.reason_count}
+          {providerComponentApi?.provider_total_card?.member_count}
         </h3>
       </div>
       <div className="flex justify-center flex-col items-center  text-xl rounded-md border p-4">
         <h1 className="text-[#000C08] opacity-40 text-[10px] md:text-[14px]">
-          Comments
+          NPS Response
         </h1>
         <h3 className="text-sm sm:text-base md:text-xl font-semibold mt-2 text-[#000C08] opacity-80">
           {providerComponentApi?.provider_total_card?.comment_count}

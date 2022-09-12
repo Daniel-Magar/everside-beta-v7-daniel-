@@ -94,7 +94,7 @@ const ProviderNPS2 = () => {
         {providerComponentApi && (
           <div className="w-full  relative ">
             <div className=" font-bold  flex justify-between gap-2 items-center">
-              <div className="opacity-80">Net Promoter Score</div>
+              <div className="opacity-80 my-3">Net Promoter Score</div>
 
               <div className="flex items-center flex-row-reverse gap-2">
                 <div
@@ -152,10 +152,10 @@ const ProviderNPS2 = () => {
                 </button>
               </div>
             </div>
-            <div className="flex  justify-between   gap-3 md:gap-5  ">
+            <div className="flex  justify-between  gap-3 md:gap-5  mb-5">
               {/* <div className="flex justify-start items-center gap-3 md:gap-5"> */}
 
-              <div className="grid grid-cols-3 gap-8 ">
+              <div className="grid grid-cols-3 gap-16 ">
                 <div className="text-center flex flex-col justify-center items-center gap-2">
                   <img src={PromoterIcon} alt="promoters" />
                   <h1 className="text-sm md:text-xl font-medium opacity-80">

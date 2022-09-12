@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import providersApiData from "../../../recoil/atoms/providersApiData";
 import { useRecoilState } from "recoil";
@@ -15,6 +15,10 @@ import { BASE_API_LINK } from "../../../utils/BaseAPILink";
 import clientValue from "../../../recoil/atoms/clientValue";
 import providerSentimentCountAtom from "../../../recoil/atoms/providerSentimentCountAtom";
 import providerComponentAPIData from "../../../recoil/atoms/providerComponentAPIData";
+import {
+  exportComponentAsPNG,
+  exxportComponentAsPDF,
+} from "react-component-export-image";
 
 const ProviderTop = () => {
   const [apiData, setApiData] = useState();
@@ -65,8 +69,13 @@ const ProviderTop = () => {
     console.log(providerComponentApi);
   }, [providerComponentApi]);
 
+  const NPSComponentDetailedCardComponent = useRef();
+
   return (
-    <div className=" rounded-lg bg-white transition-all w-[100%] p-2 h-[160px] border">
+    <div
+      className=" rounded-lg bg-white transition-all w-[100%] p-2  h-[160px] border"
+      ref={NPSComponentDetailedCardComponent}
+    >
       {providerComponentApi?.data?.length === 0 && (
         <div className="flex 2 h-full w-full justify-center items-center text-gray-400">
           No Providers
@@ -80,7 +89,7 @@ const ProviderTop = () => {
           </h1>
 
           <div className="flex items-center gap-2">
-            <div className=" rounded-md  flex justify-end items-center ">
+            {/* <div className=" rounded-md  flex justify-end items-center ">
               <input
                 type="text"
                 placeholder="Search.."
@@ -99,9 +108,9 @@ const ProviderTop = () => {
                 className="px-2 cursor-pointer"
                 onClick={() => setSearchStatus(!searchStatus)}
               />
-            </div>
+            </div> */}
 
-            <a
+            {/* <a
               href={
                 BASE_API_LINK +
                 "providerDataDownload?" +
@@ -130,14 +139,24 @@ const ProviderTop = () => {
                 fontSize="small"
                 className="cursor-pointer text-gray-400"
               />
-            </a>
+            </a> */}
+            <button
+              onClick={() =>
+                exportComponentAsPNG(NPSComponentDetailedCardComponent)
+              }
+            >
+              <FileDownloadOutlinedIcon
+                fontSize="small"
+                className="text-gray-400"
+              />
+            </button>
           </div>
         </div>
 
-        <div className="h-[100px] overflow-y-scroll">
-          <table className="w-full">
+        <div className="overflow-y-auto">
+          <table className="w-full bg-white">
             <thead className=" sticky top-0 bg-white">
-              <tr className="text-xs text-gray-400   shadow">
+              <tr className="text-xs text-gray-400  shadow">
                 <th className=" font-normal text-left px-1">
                   Top Positive Topic
                 </th>
@@ -149,29 +168,30 @@ const ProviderTop = () => {
                 <th className=" font-normal text-left px-1">NPS</th>
               </tr>
             </thead>
+
             <tbody>
-              <tr className=" h-[50px] w-[25%] ">
-                <td className="px-1">
-                  <div className="text-gray-500 text-xs flex  items-center">
+              <tr className=" h-[60px] ">
+                <td className="w-[26%] px-1">
+                  <div className=" text-gray-500 text-xs flex  items-center ">
                     {providerComponentApi?.topic?.POSITIVE_TOPIC}
                   </div>
                 </td>
-                <td className="px-1 w-[25%] ">
+                <td className="w-[26%] px-1">
                   <div className="text-gray-500 text-xs flex  items-center">
                     {providerComponentApi?.topic?.NEGATIVE_TOPIC}
                   </div>
                 </td>
-                <td className="px-1 w-[10%">
-                  <div className="text-gray-500 text-xs flex  items-center">
+                <td className="w-[5%] px-1">
+                  <div className="text-sm text-gray-500  my-auto">
                     {providerComponentApi?.topic?.count}
                   </div>
                 </td>
-                <td className="px-1 w-[10%]">
-                  <div className="text-gray-500 text-xs flex  items-center">
-                    {providerComponentApi?.topic?.score}
+                <td className="w-[5%] px-1">
+                  <div className="text-sm text-gray-500  my-auto">
+                    {providerComponentApi?.topic?.score.toFixed(1)}
                   </div>
                 </td>
-                <td className="w-[30%] px-1">
+                <td className="w-[38%] px-1">
                   <div className="w-[100%] flex justify-start items-center">
                     <div
                       style={{
