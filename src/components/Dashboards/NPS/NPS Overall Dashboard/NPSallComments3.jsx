@@ -180,6 +180,10 @@ const NPSallComments3 = () => {
     setTotalFilteredComments(apiData?.length);
   }, [apiData]);
 
+  useEffect(() => {
+    console.log("Comments comments");
+    console.log(apiData);
+  }, [apiData]);
   return (
     <div className="w-[100%] 2xl:w-[50%]  border  p-2 h-[400px] rounded-lg bg-white">
       {!apiData && (
@@ -436,7 +440,7 @@ const NPSallComments3 = () => {
                                   {data?.timestamp}
                                 </div>
                                 <div className="text-gray-400 capitalize font-normal text-[12px]">
-                                  Provider Name
+                                  {data?.provider}
                                 </div>
 
                                 <div className=" text-gray-400   text-left font-normal  ">
@@ -454,14 +458,14 @@ const NPSallComments3 = () => {
                                   </div>
                                 </div>
 
-                                <div className=" text-gray-400    font-normal ">
+                                <div className=" text-gray-400  font-normal ">
                                   {data?.topic}
                                 </div>
 
-                                <div className=" text-gray-400    font-normal ">
+                                <div className=" text-gray-400  font-normal ">
                                   {data?.client}
                                 </div>
-                                <div className=" text-gray-400    font-normal ">
+                                <div className=" text-gray-400  font-normal ">
                                   {data?.clinic}
                                 </div>
 

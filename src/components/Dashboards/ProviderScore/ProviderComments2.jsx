@@ -266,7 +266,7 @@ const ProviderComments2 = () => {
               <div className="h-[500px] overflow-y-scroll ">
                 <div className="text-[12px] p-3 pb-0 w-full  ">
                   <div className=" sticky bg-white top-0 z-[5] ">
-                    <div className=" grid grid-cols-[60px_minmax(150px,700px)_minmax(150px,1fr)] gap-1   min-w-[600px]  text-[12px] text-gray-500 uppercase font-normal bg-white border-b-2 ">
+                    <div className=" grid grid-cols-[60px_minmax(300px,700px)_minmax(100px,700px)_minmax(150px,700px)_minmax(150px,1fr)] gap-1   min-w-[600px]  text-[12px] text-gray-500 uppercase font-normal bg-white border-b-2 ">
                       <div className=" text-gray-400   capitalize  font-normal">
                         Date
                       </div>
@@ -275,6 +275,13 @@ const ProviderComments2 = () => {
                       </div>
                       <div className=" text-gray-400   capitalize font-normal">
                         Topic
+                      </div>
+                      <div className=" text-gray-400   capitalize font-normal">
+                        Clinic
+                      </div>
+
+                      <div className=" text-gray-400   capitalize font-normal  ">
+                        Visit Reason
                       </div>
                     </div>
                   </div>
@@ -298,7 +305,7 @@ const ProviderComments2 = () => {
                         return (
                           <div key={data?.id} className="w-full ">
                             {index <= totalViewedComments && (
-                              <div className=" grid  grid-cols-[60px_minmax(150px,700px)_minmax(150px,1fr)] gap-1 items-center  border-b py-2 min-h-[60px] min-w-[600px]">
+                              <div className=" grid  grid-cols-[60px_minmax(300px,700px)_minmax(100px,400px)_minmax(150px,700px)_minmax(150px,1fr)] gap-1 items-center  border-b py-2 min-h-[60px] min-w-[600px]">
                                 <div className="  text-gray-400  capitalize  font-normal text-[12px]  ">
                                   {data?.timestamp}
                                 </div>
@@ -319,6 +326,12 @@ const ProviderComments2 = () => {
 
                                 <div className=" text-gray-400    font-normal ">
                                   {data?.topic}
+                                </div>
+                                <div className=" text-gray-400    font-normal ">
+                                  {data?.clinic}
+                                </div>
+                                <div className=" text-gray-400    font-normal ">
+                                  {data?.reason}
                                 </div>
                               </div>
                             )}

@@ -59,7 +59,8 @@ const ProviderInfo2 = () => {
               </div>
               <div className=" grid grid-cols-[minmax(150px,800px)_minmax(120px,200px)_minmax(100px,200px)_minmax(100px,700px)_minmax(100px,700px)_minmax(150px,1fr)] gap-1   min-w-[600px]  text-[12px] text-gray-500  font-normal bg-white ">
                 <div className="  text-gray-600  capitalize  font-normal text-[14px]  ">
-                  {providerComponentApi?.provider_info?.name}
+                  {providerComponentApi?.provider_info?.name}, (
+                  {providerComponentApi?.provider_info?.type})
                 </div>
                 <div className="  text-gray-600  capitalize  font-normal text-[14px]  ">
                   {providerInfoDateFromRecoil}
@@ -68,7 +69,7 @@ const ProviderInfo2 = () => {
                   {providerComponentApi?.provider_total_card?.member_count}
                 </div>
                 <div className="  text-gray-600  capitalize  font-normal text-[14px]  ">
-                  {providerComponentApi?.provider_total_card?.member_count}
+                  {providerComponentApi?.provider_info?.encounter}
                 </div>
                 <div className="  text-gray-600  capitalize  font-normal text-[14px]  ">
                   {providerComponentApi?.provider_total_card?.member_count}

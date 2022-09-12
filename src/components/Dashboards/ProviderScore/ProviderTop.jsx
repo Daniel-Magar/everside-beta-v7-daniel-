@@ -60,9 +60,14 @@ const ProviderTop = () => {
   const [selectedClientValue, setSelectedClientValue] =
     useRecoilState(clientValue);
 
+  useEffect(() => {
+    console.log(",,,,,,,,,,,,,,,,,");
+    console.log(providerComponentApi);
+  }, [providerComponentApi]);
+
   return (
-    <div className=" rounded-lg bg-white transition-all w-[100%] p-2 h-[388px] border">
-      {apiData?.data?.length === 0 && (
+    <div className=" rounded-lg bg-white transition-all w-[100%] p-2 h-[160px] border">
+      {providerComponentApi?.data?.length === 0 && (
         <div className="flex 2 h-full w-full justify-center items-center text-gray-400">
           No Providers
         </div>
@@ -71,7 +76,7 @@ const ProviderTop = () => {
       <div>
         <div className=" pt-2  flex justify-between items-end mb-2">
           <h1 className=" text-left font-bold  flex-1 px-2 opacity-80 text-[#000C08]">
-            Providers Top Comments
+            Provider
           </h1>
 
           <div className="flex items-center gap-2">
@@ -133,25 +138,54 @@ const ProviderTop = () => {
           <table className="w-full">
             <thead className=" sticky top-0 bg-white">
               <tr className="text-xs text-gray-400   shadow">
-                <th className=" font-normal text-left px-1 border border-red-500">
+                <th className=" font-normal text-left px-1">
                   Top Positive Topic
                 </th>
-                <th className="font-normal text-left  px-1 border border-red-500">
+                <th className="font-normal text-left  px-1">
                   Top Negative Topic
                 </th>
-                <th className="font-normal text-left  px-1 border border-red-500">
-                  Survey Count
-                </th>
-                <th className=" font-normal text-left px-1 border border-red-500">
-                  Score
-                </th>
-                <th className=" font-normal text-left px-1 border border-red-500">
-                  NPS
-                </th>
+                <th className="font-normal text-left  px-1">Survey Count</th>
+                <th className=" font-normal text-left px-1">Score</th>
+                <th className=" font-normal text-left px-1">NPS</th>
               </tr>
             </thead>
-
             <tbody>
+              <tr className=" h-[50px] w-[25%] ">
+                <td className="px-1">
+                  <div className="text-gray-500 text-xs flex  items-center">
+                    {providerComponentApi?.topic?.POSITIVE_TOPIC}
+                  </div>
+                </td>
+                <td className="px-1 w-[25%] ">
+                  <div className="text-gray-500 text-xs flex  items-center">
+                    {providerComponentApi?.topic?.NEGATIVE_TOPIC}
+                  </div>
+                </td>
+                <td className="px-1 w-[10%">
+                  <div className="text-gray-500 text-xs flex  items-center">
+                    {providerComponentApi?.topic?.count}
+                  </div>
+                </td>
+                <td className="px-1 w-[10%]">
+                  <div className="text-gray-500 text-xs flex  items-center">
+                    {providerComponentApi?.topic?.score}
+                  </div>
+                </td>
+                <td className="w-[30%] px-1">
+                  <div className="w-[100%] flex justify-start items-center">
+                    <div
+                      style={{
+                        width: `${providerComponentApi?.topic?.nps_abs}%`,
+                      }}
+                      className="bg-[#0094DE] h-[25px] min-w-[15%] py-1 text-white text-center rounded-r-md flex justify-end items-center pr-1"
+                    >
+                      {providerComponentApi?.topic?.nps_abs}
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            {/* <tbody>
               {providerComponentApi?.top_negative?.length >
               providerComponentApi?.top_positive?.length
                 ? providerComponentApi?.top_negative?.map((data, idx) => {
@@ -186,7 +220,7 @@ const ProviderTop = () => {
                       </tr>
                     );
                   })}
-            </tbody>
+            </tbody> */}
           </table>
         </div>
       </div>

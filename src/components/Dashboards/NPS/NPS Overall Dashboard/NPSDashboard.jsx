@@ -727,8 +727,8 @@ const NPSDashboard = () => {
       {activePageValue === "NSS_Analysis" ? <NSSAnalysisPage /> : ""}
       {activePageValue === "Comments" ? <CommentsPage /> : ""}
       {activePageValue === "Engagement_Model" ? <EngagementModel /> : ""}
-      {activePageValue === "Provider_Score" ? <ProviderScorePage /> : ""}
-      {/* {activePageValue === "Provider_Score" ? <ProviderScorePage2 /> : ""} */}
+      {/* {activePageValue === "Provider_Score" ? <ProviderScorePage /> : ""} */}
+      {activePageValue === "Provider_Score" ? <ProviderScorePage2 /> : ""}
       {activePageValue === "Provider_Score_Com" ? <ProviderScorePage3 /> : ""}
     </div>
   );

@@ -132,8 +132,7 @@ const ProviderScorePage3 = () => {
 
   return (
     <div className=" min-h-[90vh]">
-      kdd
-      {/* <ProviderFilter2 />
+      <ProviderFilter2 />
       <SelectProvider />
       <div className=" ">
         {providerComponentApi ? (
@@ -167,7 +166,7 @@ const ProviderScorePage3 = () => {
             Select a provider to display analytics
           </div>
         )}
-      </div> */}
+      </div>
     </div>
   );
 };
